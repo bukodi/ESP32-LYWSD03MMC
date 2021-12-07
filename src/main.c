@@ -34,7 +34,7 @@
 
 void onTimer( void *arg ) {
     ESP_LOGI(TAG,"Start on timer");
-    esp_err_t ret = execute_blescan( 6, NULL );
+    esp_err_t ret = execute_blescan( 125, NULL );
     if (ret){
         ESP_LOGE(TAG, "set scan params error, error code = %x", ret);
     }
@@ -52,7 +52,7 @@ void app_main(void)
     ESP_ERROR_CHECK( ret );
     ESP_ERROR_CHECK( init_blescanner() );
 
-    double intervallInSec = 10;
+    double intervallInSec = 120;
     ESP_ERROR_CHECK( start_timer(intervallInSec, &onTimer) );
 
 }
